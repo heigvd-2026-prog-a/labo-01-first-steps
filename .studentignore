@@ -1,0 +1,4 @@
+# Teacher-only paths, dropped by heig-classroom when it squashes this
+# repository into the student handout (the student/ overlay is applied first).
+scripts/
+.github/workflows/studentize.yml

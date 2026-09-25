@@ -1,26 +1,123 @@
-name: Premiers pas avec l'environment de dévelopment
-difficulty: 1
-periods: 2
-goals:
-- Joindre un assignment depuis GitHub Classroom.
-- Récupérer les fichiers sources d'un travail pratique depuis GitHub.
-- Apporter vos modifications, ajouter des fichiers.
-- Soumettre vos changements sur GitHub.
-- Compiler votre programme.
-- Tester votre programme.
-- Comprendre les différents fichiers constituant un projet d'Info1.
-topics:
-- installation
-- compliateur
-- éditeur de code
-- configuration
-- github
-- github-classroom
-evaluation:
-- laboratoire rendu ?
-- laboratoire rendu à l'heure ?
-- programme compile sans erreurs ?
-- les tests sont fonctionnels ?
-- les cas particuliers sont gérés ?
-- l'indentation du code est correcte ?
-- l'annotation du code est juste et cohérente ?
+# Critères d'évaluation du travail pratique
+---
+schema_version: 2
+
+grading:
+  context: |
+    Tu es un correcteur impartial et bienveillant d'un cours d'introduction à
+    la programmation en C, en toute première semaine de première année. C'est
+    le tout premier laboratoire: les étudiants découvrent le terminal, Git,
+    Visual Studio Code, le compilateur et le débogueur. Tu évalues uniquement à
+    partir des preuves présentes dans le code source, les tests et
+    l'historique Git. En cas de doute légitime, accorde le bénéfice du doute et
+    justifie systématiquement chaque point attribué ou retiré.
+
+    Le cahier des charges est le fichier README.md du dépôt: c'est lui qui fait
+    foi. Le programme gcd.c fourni contenait volontairement des erreurs de
+    syntaxe (variable r non déclarée, stdio.h manquant, point-virgule absent),
+    des erreurs de logique (reste calculé à l'envers, résultat augmenté de 5)
+    et des erreurs de style (indentation incohérente, en-tête et variable
+    inutiles). Le travail consiste à les corriger puis à annoter chaque ligne.
+    Les commentaires sont attendus en français.
+  student:
+    level: 1ère année, HEIG-VD, première semaine
+    knows:
+      - rien ou presque de la programmation
+      - l'installation de WSL et de Git
+    learning:
+      - cloner, modifier, committer et pousser un dépôt Git
+      - compiler avec gcc et make
+      - lire et interpréter un message d'erreur du compilateur
+      - utiliser le débogueur de Visual Studio Code
+      - l'algorithme d'Euclide
+  sources:
+    - README.md
+    - gcd.c
+    - Makefile
+    - tests/*.py
+
+criteria:
+  binary:
+    description: Exécutable binaire
+    all-tests-passed:
+      description: Les tests fonctionnels passent avec succès
+      awarded_points: 0
+      max_points: 6
+  build:
+    description: Compilation du code
+    with-no-errors:
+      description: Le programme compile sans erreur ni avertissement avec make
+      awarded_points: 0
+      max_points: -4
+  fixes:
+    description: Correction du programme fourni
+    algorithm:
+      description: L'algorithme d'Euclide est correctement rétabli
+      awarded_points: 0
+      max_points: 2
+      prompt: >
+        Accorde 2 si la boucle de gcd calcule le reste de a par b (a % b) et
+        que main affiche le résultat sans le modifier. Accorde 1 si le résultat
+        est juste mais obtenu par un contournement (valeur corrigée après coup,
+        cas particuliers codés en dur, algorithme remplacé sans raison). Sinon 0.
+    arguments:
+      description: Un nombre d'arguments insuffisant est signalé
+      awarded_points: 0
+      max_points: 1
+      prompt: >
+        Accorde 1 si le programme se termine avec un code de retour non nul
+        lorsqu'il reçoit moins de deux nombres, sans lire hors de argv. Un
+        message d'usage sur stderr est apprécié mais pas exigé. Sinon 0.
+    cleanup:
+      description: Les éléments inutiles ont été retirés
+      awarded_points: 0
+      max_points: -1
+      prompt: >
+        Retire 1 s'il subsiste une variable déclarée mais inutilisée ou un
+        #include qui ne sert à rien (string.h n'est pas utilisé). Sinon 0.
+  annotation:
+    description: Annotation du programme
+    every-line:
+      description: Chaque ligne de code est annotée
+      awarded_points: 0
+      max_points: 3
+      prompt: >
+        Compte les lignes de code de gcd.c (hors lignes vides, accolades
+        seules et commentaire d'en-tête) qui portent un commentaire, en ligne
+        ou juste au-dessus, éventuellement sous forme de bloc couvrant quelques
+        lignes étroitement liées. Accorde 3 si toutes le sont, 2 si plus des
+        trois quarts, 1 si plus de la moitié, sinon 0.
+    accuracy:
+      description: Les commentaires sont justes et témoignent de la compréhension
+      awarded_points: 0
+      max_points: 3
+      prompt: >
+        Accorde 3 si les commentaires décrivent correctement le rôle de chaque
+        ligne, en particulier argc et argv, atoi, la boucle d'Euclide (pourquoi
+        on échange les valeurs et pourquoi le dernier reste non nul est le
+        PGCD) et la valeur de retour de main. Retire 1 par contresens ou
+        erreur factuelle, et 1 si les commentaires se bornent à paraphraser la
+        syntaxe sans rien expliquer. Minimum 0.
+  code:
+    description: Qualité du code source
+    indentation:
+      description: L'indentation du code est cohérente
+      awarded_points: 0
+      max_points: -1
+      prompt: >
+        Retire 1 si l'indentation mélange plusieurs largeurs (par exemple 2 et
+        4 espaces) ou des tabulations et des espaces, ou si elle ne reflète pas
+        l'imbrication des blocs. Sinon 0.
+  commit:
+    description: Commits sous Git
+    pushed:
+      description: Le travail a été committé et poussé sur GitHub
+      awarded_points: 0
+      max_points: 1
+      prompt: >
+        Accorde 1 si l'historique contient au moins un commit de l'étudiant
+        modifiant gcd.c, en plus du commit initial. Sinon 0.
+    good-comments:
+      description: Les messages de commit sont concis, précis et cohérents
+      awarded_points: 0
+      max_points: 1

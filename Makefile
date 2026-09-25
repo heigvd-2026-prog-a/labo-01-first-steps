@@ -1,15 +1,17 @@
-EXEC=gcd
-CFLAGS=-g -std=c11 -Wall -Werror
+EXEC = gcd
+CFLAGS = -std=c11 -g -Wall -Wextra -Werror
 
-all: test
+all: build
 
-%: %.c
-	$(CC) $(CFLAGS) $? -o $@ $(LDFLAGS)
+build: $(EXEC)
+
+$(EXEC): $(EXEC).c
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
 
 test: $(EXEC)
-	test/test.sh $(abspath $<)
+	pytest -v
 
 clean:
-	$(RM) $(EXEC) *.o
+	$(RM) $(EXEC) *.o a.out report.xml
 
-PHONY: test all
+.PHONY: all build test clean

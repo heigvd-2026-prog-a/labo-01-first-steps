@@ -1,0 +1,28 @@
+name: studentize
+
+# Turn a fork/import of this teacher repo into the student handout:
+# apply the student/ overlay, drop teacher-only files, squash history,
+# force-push. Trigger manually (Actions tab) or via the GitHub API
+# (workflow_dispatch) right after heig-classroom forks the template.
+#
+# Never runs in the canonical teacher repo (guarded below and in the script).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  studentize:
+    if: github.repository != 'heig-tin-info/labo-01-first-steps'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Studentize
+        run: ./scripts/studentize.sh
+
+      - name: Push the student handout
+        run: git push --force origin HEAD

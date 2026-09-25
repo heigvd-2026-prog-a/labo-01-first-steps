@@ -1,132 +1,135 @@
-# 👋 Laboratoire 01 - Premiers pas
+# 👋 Laboratoire 01 — Premiers pas
 
-| Type       | Description                        |
-| ---------- | ---------------------------------- |
-| Durée      | 2x45 minutes + Travail à la maison |
-| Rendu      | Sur GitHub                         |
-| Format     | Travail individuel                 |
-| Évaluation | Sur la fonctionnalité du code      |
+| Type       | Description                                  |
+| ---------- | -------------------------------------------- |
+| Durée      | 2 × 45 minutes + travail à la maison         |
+| Rendu      | Sur GitHub, via HEIG-Classroom               |
+| Format     | Travail individuel                           |
+| Évaluation | Tests automatisés et relecture du code       |
 
-Le but de ce travail pratique est la prise en main de l'environnement de développement (Visual Studio Code) et la compilation de votre premier programme. Plus nous avancerons dans les travaux pratiques, moins vous serez guidé. Pour l'heure, avançons pas à pas...
+Ce premier travail pratique a pour but de vous familiariser avec l'environnement de développement, Visual Studio Code, et de compiler votre tout premier programme. Au fil des laboratoires, les consignes se feront plus succinctes et vous gagnerez en autonomie ; pour l'heure, avançons pas à pas.
 
-À la fin de ce travail pratique vous serez en mesure de :
+À l'issue de ce travail pratique, vous saurez :
 
 - récupérer les fichiers sources d'un travail pratique depuis GitHub (*clone*) ;
-- apporter vos modifications, ajouter des fichiers ;
-- soumettre vos changements sur GitHub ;
-- compiler votre programme ;
-- le tester ;
-- comprendre les différents fichiers constituant un projet d'Info1.
+- modifier des fichiers et en ajouter de nouveaux ;
+- enregistrer vos modifications (*commit*) et les publier sur GitHub (*push*) ;
+- compiler un programme et interpréter les messages du compilateur ;
+- tester un programme et le déboguer pas à pas ;
+- identifier le rôle des différents fichiers qui composent un projet d'Info1.
 
 ## Début d'un laboratoire
 
-Tous les développeurs de la planète terre, utilisent majoritairement aujourd'hui l'outil Git pour gérer le code source de leurs projets. Git n'est rien d'autre qu'une base de données locale prenant place dans un dossier caché dans le dossier du projet et nommé `.git`.
+Aujourd'hui, l'immense majorité des développeurs gèrent le code source de leurs projets avec **Git**. Git n'est rien d'autre qu'une base de données locale, logée dans un répertoire caché nommé `.git` à la racine du projet, qui conserve l'historique complet de chaque modification.
 
-| Rang | Système de gestion de version | Part d'utilisation |
-| ---- | ----------------------------- | ------------------ |
-| 1    | Git                           | 95%                |
-| 2    | Subversion                    | 3%                 |
-| 3    | Perforce                      | 1%                 |
-| 4    | Mercurial                     | 1%                 |
+| Rang | Système de gestion de versions | Part d'utilisation (ordre de grandeur) |
+| ---- | ------------------------------ | -------------------------------------- |
+| 1    | Git                            | 95 %                                   |
+| 2    | Subversion                     | 3 %                                    |
+| 3    | Perforce                       | 1 %                                    |
+| 4    | Mercurial                      | 1 %                                    |
 
-Pour collaborer dans les années 1990, les développeurs s'envoyaient des e-mails ou des disquettes par la poste. Aujourd'hui on utilise plus volontiers des plateformes collaboratives qui intègrent Git. Les principales sont:
+Dans les années 1990, les développeurs qui voulaient collaborer s'échangeaient leur code par courriel, voire par disquettes envoyées par la poste. On recourt désormais à des plateformes collaboratives bâties autour de Git, dont voici les principales :
 
-| Rang | Système de gestion de version | Part d'utilisation |
-| ---- | ----------------------------- | ------------------ |
-| 1    | GitHub                        | 78%                |
-| 2    | GitLab                        | 12%                |
-| 3    | BitBucket                     | 6%                 |
-| 4    | Azure DevOps                  | 3%                 |
-| 5    | Autre (Gitea, Forgejo...)     | 1%                 |
+| Rang | Plateforme                | Part d'utilisation (ordre de grandeur) |
+| ---- | ------------------------- | -------------------------------------- |
+| 1    | GitHub                    | 78 %                                   |
+| 2    | GitLab                    | 12 %                                   |
+| 3    | Bitbucket                 | 6 %                                    |
+| 4    | Azure DevOps              | 3 %                                    |
+| 5    | Autres (Gitea, Forgejo…)  | 1 %                                    |
 
-Pour faciliter l'organisation des laboratoires, la HEIG-VD a développé l'outil [HEIG-Classroom](https://classroom.chevallier.io). Il permet de distribuer les travaux pratiques, intéragir avec GitHub, de gérer les rendus et de corriger les travaux.
+Pour faciliter l'organisation des laboratoires, la HEIG-VD a développé [HEIG-Classroom](https://classroom.chevallier.io). Cette plateforme distribue les travaux pratiques, dialogue avec GitHub, recueille les rendus et en facilite la correction.
 
-La première étape consiste donc à vous connecter sur HEIG-Classroom puis à accepter le laboratoire. La plateforme s'occupe de créer sur GitHub un *référentiel* sur lequel vous allez travailler. Il s'agit d'un espace cloud de stockage de fichiers et de code source. Vous pouvez y accéder depuis votre navigateur web.
+La première étape consiste donc à vous connecter à HEIG-Classroom, puis à accepter le laboratoire. La plateforme crée alors pour vous, sur GitHub, un **dépôt** (*repository*) : un espace de stockage en ligne qui accueillera votre code source et que vous pouvez consulter depuis votre navigateur.
 
-Une fois sur GitHub, vous pouvez utiliser le bouton vert pour copier le lien du chemin pour cloner votre projet, c'est à dire le récupérer sur votre ordinateur :
+Une fois sur la page GitHub de votre dépôt, récupérez l'adresse qui permet de le *cloner*, c'est-à-dire d'en obtenir une copie sur votre ordinateur :
 
-1. Cliquez sur le bouton `<> Code`
-2. Sélectionnez `Local`
-3. Sélectionnez `SSH`
-4. Cliquez sur le bouton `Copy` pour copier le lien dans votre presse-papier.
+1. cliquez sur le bouton vert `<> Code` ;
+2. sélectionnez l'onglet `Local` ;
+3. choisissez `SSH` ;
+4. cliquez sur l'icône de copie pour placer l'adresse dans le presse-papiers.
 
 ![copy-clone-link](assets/copy-clone-link.png)
 
-## Clone du référentiel
+## Clonage du dépôt
 
-Lors du travail précédent, nous avons installé WSL (Linux) et Git. Donc à présent vous allez ouvrir un terminal Linux et utiliser la commande `git clone` suivie du lien copié depuis GitHub pour récupérer le projet sur votre ordinateur. Utilisez le bouton droit de la souris pour coller le lien. L'opération de clonage est illustrée ci-dessous :
-
-```console
-$ git clone https://github.com/heig-vd-tin/labo-01-yves-chevallier.git
-Cloning into 'labo-01-yves-chevallier'...
-remote: Enumerating objects: 8, done.
-remote: Counting objects: 100% (8/8), done.
-remote: Compressing objects: 100% (8/8), done.
-remote: Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (8/8), done.
-```
-
-Découpons un peu cette sortie pour mieux comprendre ce qui se passe. Le `$` au début de la ligne s'appelle le *prompt*, il indique que le terminal est prêt à recevoir une commande. `git` c'est le nom du programme que vous voulez appeler, `clone` c'est une sous commande de `git` et enfin le dernier argument c'est le chemin du projet que vous voulez cloner.
-
-Une fois exécuté la commande vous informera de l'état d'avancement du clonage. Le point important c'est de constater que le dernier mot de la sortie est `done`. Cela signifie que tout s'est bien passé.
-
-Une fois récupéré, rendez-vous dans le répertoire de votre projet en appelant la commande `cd` (*change directory*) suivie du nom du répertoire (indiqué dans la sortie de la commande précédente, ici `labo-01-yves-chevallier`).
-
-Rendez-vous dans le répertoire :
+Lors du travail précédent, vous avez installé WSL (Linux) et Git. Ouvrez à présent un terminal Linux et saisissez la commande `git clone` suivie de l'adresse copiée depuis GitHub ; un clic droit suffit à la coller dans le terminal. Voici à quoi ressemble l'opération :
 
 ```console
-cd labo-01-yves-chevallier
+$ git clone git@github.com:heig-tin-info/labo-01-first-steps-emmett-brown.git
+Cloning into 'labo-01-first-steps-emmett-brown'...
+remote: Enumerating objects: 24, done.
+remote: Counting objects: 100% (24/24), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 24 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (24/24), 197.60 KiB | 2.53 MiB/s, done.
 ```
 
-> **Note**
-> il vous suffit de faire `cd lab<tab><tab>` pour compléter automatiquement le reste du texte. C'est très pratique lorsque vous avez des noms de répertoires longs.
+Décortiquons cette commande. Le `$` en début de ligne est l'**invite de commande** (*prompt*) : il signale que le terminal attend vos instructions et ne doit pas être recopié. `git` est le nom du programme appelé, `clone` l'une de ses sous-commandes, et le dernier argument désigne le dépôt à cloner.
 
-Depuis cette étape vous pouvez maintenant lancer votre éditeur de code (Visual Studio Code). N'oubliez pas le point `.` après le nom de la commande, il signifie *le répertoire courant* :
+Git rend compte de l'avancement du clonage au fil de son exécution. Le point important est que la dernière ligne se termine par `done` : tout s'est bien passé.
+
+Entrez ensuite dans le répertoire du projet avec la commande `cd` (*change directory*), suivie du nom du répertoire indiqué par la commande précédente :
+
+```console
+cd labo-01-first-steps-emmett-brown
+```
+
+> [!TIP]
+> Tapez simplement `cd lab` puis appuyez sur <kbd>Tab</kbd> : le terminal complète automatiquement le reste du nom. C'est fort pratique lorsque les noms de répertoires sont longs.
+
+Vous pouvez dès lors lancer votre éditeur de code, Visual Studio Code. N'oubliez pas le point `.` après le nom de la commande : il désigne le *répertoire courant*, c'est-à-dire celui du projet.
 
 ```console
 code .
 ```
 
-> La commande reçoit en argument la chaîne de caractère `.`. La commande ouvre donc VS Code dans le répertoire courant, celui du projet.
-
-Visual Studio Code est démarré dans Windows puis connecté à votre WSL par le biais d'une connexion à distance (*remote connection*). En bas à gauche de la fenêtre de Visual Studio Code vous pouvez constater un petit logo vert indiquant l'état de la connexion à distance avec WSL par exemple `WSL: Ubuntu-26.04`. Lors du lancement vous observerez que votre éditeur de code se connecte à votre WSL:
+Visual Studio Code s'exécute sous Windows, mais se connecte à votre WSL au moyen d'une connexion à distance (*remote connection*). Un indicateur situé en bas à gauche de la fenêtre en affiche l'état, par exemple `WSL: Ubuntu`. Au lancement, vous verrez l'éditeur établir cette connexion :
 
 ![open-remote](assets/open-remote.png)
 
-*NOTE* : Si vous ne parvenez pas à obtenir cette connexion, c'est sans doute qu'il vous manque l'extension `WSL`. Installer cette extension depuis le menu `Extensions` de Visual Studio Code, puis redémarrer Visual Studio Code.
+> [!NOTE]
+> Si la connexion ne s'établit pas, il vous manque probablement l'extension **WSL**. Installez-la depuis le panneau `Extensions` de Visual Studio Code, puis redémarrez l'éditeur.
 
 ## Installation des extensions
 
-Pour disposer de tout l'arsenal de développent en C/C++ il est nécessaire d'installer des extensions à votre éditeur Visual Studio si ce n'est pas déjà fait. Visual Studio Code est un outil très polyvalent et de nombreuses extensions ajoutant des fonctionnalités peuvent être installées au gré des besoins. Le raccourci `<CTRL>+<MAJ>+<X>` permet d'ouvrir le panneau d'installation des extensions. On vous propose l'installation des extensions suivantes :
+Visual Studio Code est un outil très polyvalent dont on étend les fonctionnalités au gré des besoins grâce à des *extensions*. Pour disposer de tout l'outillage nécessaire au développement en C, installez celles qui suivent, si ce n'est déjà fait. Le raccourci <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>X</kbd> ouvre le panneau des extensions.
 
-**C/C++** Permet de mieux interagir avec du code C, il permet de s'interfacer avec un débogueur, d'avoir de l'autocomplétion de code et un correcteur interactif de syntaxe.
+**C/C++** (Microsoft) — Fournit l'interface avec le débogueur, indispensable pour exécuter votre programme pas à pas.
 
-**clangd** Permet d'avoir de l'autocomplétion de code et un correcteur interactif de syntaxe.
+**clangd** — Offre une autocomplétion pertinente et signale les erreurs au fil de la frappe. Si l'extension vous propose de désactiver l'IntelliSense de l'extension C/C++, acceptez : les deux feraient doublon.
 
-**EditorConfig** Permet de configurer certaines options propres à chaque type de fichier (nombre de tabulation, type d'encodage, type de fin de ligne, etc.)
+**EditorConfig** — Applique automatiquement les conventions propres à chaque type de fichier (largeur d'indentation, encodage, fins de ligne, etc.), décrites dans le fichier `.editorconfig`.
 
-Le raccourci `<CTRL>+<MAJ>+<E>` permet de revenir à l'arborescence de travail.
+> [!TIP]
+> Ces extensions sont recommandées par le projet lui-même : à l'ouverture du dossier, Visual Studio Code vous propose de les installer en un clic.
 
-## Familiarisation avec la structure des fichiers
+Le raccourci <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>E</kbd> vous ramène ensuite à l'explorateur de fichiers.
 
-Prenez connaissance de la structure des fichiers du labo ci-dessous. Vous pouvez obtenir ce type d'arborescence avec le programme `tree` depuis WSL. Ouvrez un terminal depuis vs-code avec le raccourci `<C-j>` puis tapez la commande `tree` :
+## Structure du projet
+
+Prenez connaissance de l'arborescence du laboratoire, reproduite ci-dessous. Pour l'obtenir vous-même, ouvrez un terminal dans Visual Studio Code avec <kbd>Ctrl</kbd>+<kbd>J</kbd>, puis tapez la commande `tree` :
 
 ```text
 .
-├── Makefile        # Les directives de compilation
-├── README.md       # La donnée du laboratoire au format Markdown
-├── assets          # Les images associées au README
-├── gcd.c           # Le programme C à compléter / corriger
-├── criteria.yml    # Les critères d'évaluation du travail
-└── test            # Les éventuels tests du laboratoire
-    └── test.sh     # Le test du programme gcd.c
+├── Makefile          # Les directives de compilation
+├── README.md         # La donnée du laboratoire, au format Markdown
+├── assets            # Les images illustrant la donnée
+├── criteria.yml      # Les critères d'évaluation du travail
+├── gcd.c             # Le programme C à corriger et à annoter
+└── tests             # Les tests automatisés du laboratoire
+    └── test_gcd.py   # Les tests du programme gcd.c
 ```
 
-> **NOTE** Si le programme `tree` n'est pas installé sur votre WSL, vous pouvez l'installer avec la commande suivante : `sudo apt install tree`
+> [!NOTE]
+> Si le programme `tree` n'est pas installé dans votre WSL, installez-le avec `sudo apt install tree`.
 
-Pour l'instant, le seul fichier qui nous intéresse c'est `gcd.c`. Votre travail c'est de corriger ce programme et de le compiler.
+D'autres fichiers, dont le nom commence par un point, sont masqués par défaut (`tree -a` les affiche) : ils configurent l'éditeur (`.vscode`), Git (`.gitignore`) ou l'intégration continue (`.github`). Vous n'avez pas à y toucher.
 
-Car oui, le programme qu'on vous a fourni ne compile pas, il contient de nombreuses erreurs:
+Pour l'heure, seul le fichier `gcd.c` nous intéresse. Il implémente l'algorithme d'Euclide, qui calcule le plus grand commun diviseur (PGCD, *greatest common divisor* en anglais) de deux entiers. Votre mission : corriger ce programme et le compiler.
+
+Car le programme qui vous est fourni ne compile pas : il est truffé d'erreurs, et de plusieurs natures :
 
 - des erreurs de syntaxe ;
 - des erreurs de logique ;
@@ -134,189 +137,225 @@ Car oui, le programme qu'on vous a fourni ne compile pas, il contient de nombreu
 
 ## Compilation
 
-Depuis la console, essayer de compiler votre programme en utilisant le compilateur `gcc`. Vous constaterez quelques erreurs :
+Depuis le terminal, tentez de compiler le programme avec le compilateur `gcc`. Vous obtiendrez plusieurs messages d'erreur :
 
-```bash
+```console
 $ gcc gcd.c
-gcd.c: In function ‘gcd’:
-gcd.c:13:5: error: ‘r’ undeclared (first use in this function)
-     r = b;
-     ^
-gcd.c:13:5: note: each undeclared identifier is reported only once for each
-function it appears in
-gcd.c: In function ‘main’:
-gcd.c:30:5: warning: implicit declaration of function ‘printf’
-[-Wimplicit-function-declaration]
-     printf("%d\n", result + 5);
-     ^~~~~~
-gcd.c:30:5: warning: incompatible implicit declaration of built-in function ‘printf’
-gcd.c:30:5: note: include ‘<stdio.h>’ or provide a declaration of ‘printf’
-gcd.c:33:1: error: expected ‘;’ before ‘}’ token
+gcd.c: In function 'gcd':
+gcd.c:13:5: error: 'r' undeclared (first use in this function)
+   13 |     r = b;
+      |     ^
+gcd.c:13:5: note: each undeclared identifier is reported only once for each function it appears in
+gcd.c: In function 'main':
+gcd.c:30:5: error: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   30 |     printf("%d\n", result + 5);
+      |     ^~~~~~
+gcd.c:9:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    8 | #include <string.h>
+  +++ |+#include <stdio.h>
+    9 |
+gcd.c:32:13: error: expected ';' before '}' token
+   32 |     return 0
+      |             ^
+      |             ;
+   33 | }
+      | ~
 ```
 
-Votre but c'est bien naturellement de corriger ces erreurs en essayant d'interpreter les erreurs. L'algorithme est donc assez simple :
+Chaque message suit le même schéma : le fichier, la ligne et la colonne concernés (`gcd.c:13:5`), la gravité (`error`, `warning` ou `note`), puis une description du problème, suivie de la ligne fautive dont l'emplacement exact est souligné par un `^`. Le compilateur va parfois jusqu'à suggérer la correction, comme ici l'ajout de `#include <stdio.h>`.
 
-1. Essayer de compiler ;
-2. Corriger le programme, le sauver ;
-3. Retour à (1) si échec.
+Votre objectif est naturellement de corriger ces erreurs en interprétant les messages. La démarche est simple :
 
-Alternativement, vous pouvez aussi vous aider du tab `Problems` de Visual Studio Code qui liste les erreurs de compilation grace aux extensions que nous avons installées. Vous pouvez accéder à ce tab avec le raccourci `<CTRL>+<MAJ>+<M>`.
+1. compilez ;
+2. corrigez la première erreur signalée et enregistrez le fichier ;
+3. recommencez tant que la compilation échoue.
+
+> [!TIP]
+> Traitez toujours les erreurs dans l'ordre : une seule faute peut en provoquer plusieurs autres en cascade, qui disparaîtront d'elles-mêmes une fois la première corrigée.
+
+Vous pouvez également vous appuyer sur l'onglet `Problems` de Visual Studio Code, qui recense les erreurs détectées par les extensions installées. Le raccourci <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>M</kbd> l'affiche.
 
 ![problems](assets/problems.png)
 
-En double cliquant sur une erreur, vous serez directement amené à la ligne du code source qui pose problème.
+Un double clic sur une erreur vous conduit directement à la ligne incriminée.
 
 ## Compilation automatique
 
-Habituellement on n'utilise pas `gcc` directement, on ajoute des **options de compilation**. Certaines options comme `-std=c11` permettent de dire au compilateur d'utiliser le standard **C11** (ISO 9899:2011). Pour simplifier la compilation, le développeur écrit un fichier nommé *Makefile* qui contient toute la procédure de compilation.
+En pratique, on n'appelle guère `gcc` sans lui passer d'**options de compilation**. L'option `-std=c11`, par exemple, impose le respect de la norme **C11** (ISO/IEC 9899:2011) ; `-Wall -Wextra` activent la plupart des avertissements, et `-Werror` les transforme en erreurs afin qu'aucun ne passe inaperçu. Pour ne pas avoir à retaper ces options, le développeur consigne toute la procédure de compilation dans un fichier nommé `Makefile`.
 
-Dans ce cours il ne vous sera jamais demandé d'écrire un *Makefile* en revanche, il est essentiel que vous puissiez en utiliser un.
+Dans ce cours, il ne vous sera jamais demandé d'écrire un `Makefile` ; en revanche, il est essentiel que vous sachiez vous en servir. Il suffit pour cela d'exécuter le programme `make` dans le répertoire qui contient le `Makefile` :
 
-Pour l'utiliser, exécuter simplement le programme `make` dans un répertoire qui contient un `Makefile` :
-
-```bash
+```console
 $ make
-cc -std=c11 -Wall -Werror gcd.c -o gcd
-test/test.sh /mnt/c/Users/yves.chevalli/Dropbox/work/heig-vd/teaching/info/laboratories/info1-labo-01/gcd
-Makefile:10: recipe for target 'test' failed
-make: *** [test] Error 1
+cc -std=c11 -g -Wall -Wextra -Werror gcd.c -o gcd
 ```
 
-Vous constatez que le programme s'est bien compilé, mais qu'une erreur est apparue à la recette `test`. C'est-à-dire que le programme de test n'a pas fonctionné. Cherchons donc à savoir pourquoi.
+Le programme `gcd` est produit. Exécutez-le en préfixant son nom de `./`, qui indique qu'il se trouve dans le répertoire courant :
 
-Si l'on exécute le programme compilé avec `./` devant le nom du programme, vous obtenez ceci :
-
-```bash
+```console
 $ ./gcd 12 6
 11
 ```
 
-C'est étrange, le programme retourne 11 alors que le plus grand diviseur commun devrait être 6. Il doit y avoir un autre problème dans le programme.
+Étrange : le programme affiche 11 alors que le plus grand commun diviseur de 12 et 6 est 6. Le programme compile, certes, mais il reste des erreurs de logique. Saurez-vous les débusquer ?
 
-Saurez-vous le trouver ?
+Pour vous aider, le laboratoire est accompagné de **tests automatisés** qui exécutent votre programme avec de nombreuses valeurs et comparent ses réponses aux résultats attendus. Ils s'appuient sur `pytest`, que vous installez une fois pour toutes :
 
-Votre objectif est bien entendu d'arriver à lancer tous les tests.
+```console
+sudo apt install python3-pytest
+```
 
-## Debug depuis Visual Studio Code
+Lancez ensuite les tests avec :
 
-Pour de petits programmes, compiler manuellement ou via un *Makefile* est une très bonne solution, mais pour de très gros programmes il existe d'autres techniques.
+```console
+$ make test
+pytest -v
+...
+tests/test_gcd.py::test_prints_the_greatest_common_divisor[42-36-6] FAILED [  5%]
+tests/test_gcd.py::test_prints_the_greatest_common_divisor[12-6-6] FAILED [ 11%]
+...
+========================= 15 failed, 3 passed in 0.06s =========================
+make: *** [Makefile:12: test] Error 1
+```
 
-La première étape est de vous assurer que vous avez bien un débogueur installé sur votre système. Depuis le terminal (`<C-j>`) tentez d'installer `gdb` (GNU Debugger) avec:
+Chaque ligne correspond à un test : `PASSED` s'il réussit, `FAILED` s'il échoue, accompagné en fin de rapport d'une explication de l'écart constaté. Ouvrez le fichier `tests/test_gcd.py` : il énonce sans ambiguïté ce que l'on attend de votre programme, y compris dans les cas particuliers.
+
+Votre objectif, bien entendu, est que tous les tests passent.
+
+## Débogage depuis Visual Studio Code
+
+Pour un petit programme, relire le code ou compiler à la main suffit souvent à trouver une erreur. Pour de plus gros programmes, on recourt à un outil dédié : le **débogueur**, qui permet d'exécuter le programme pas à pas et d'observer l'évolution de ses variables.
+
+Assurez-vous d'abord qu'un débogueur est installé sur votre système. Depuis le terminal (<kbd>Ctrl</kbd>+<kbd>J</kbd>), installez `gdb` (*GNU Debugger*) :
 
 ```console
 sudo apt install gdb
 ```
 
-Dès à présent, depuis Visual Studio Code, vous pouvez utiliser le raccourci `<F5>` lorsque vous éditez le programme `gcd.c` pour lancer le débogueur.
+Dès lors, le raccourci <kbd>F5</kbd> compile le programme avec `make`, puis le lance sous le contrôle du débogueur.
 
-Si vous rencontrez l'erreur suivante, c'est que votre programme ne compile toujours pas. Il faut donc corriger les erreurs de compilation avant de pouvoir utiliser le débogueur.
+Si le message ci-dessous apparaît, c'est que votre programme ne compile toujours pas : corrigez d'abord les erreurs de compilation.
 
 ![Encore des erreurs](assets/errors.png)
 
-Si vous avez l'erreur suivante, c'est que vous n'avez pas installé le débogueur `gdb` sur votre WSL. Il faut donc l'installer avec la commande `sudo apt install gdb`.
+Si c'est le message suivant qui s'affiche, `gdb` n'est pas installé dans votre WSL : installez-le avec la commande `sudo apt install gdb`.
 
 ![Pas de débogueur](assets/no-debugger.png)
 
-Si tout se passe bien vous aurez la sortie suivante:
+Si tout se passe bien, la console de débogage affiche une sortie semblable à celle-ci :
 
 ```text
 Loaded '/lib64/ld-linux-x86-64.so.2'. Symbols loaded.
 [Thread debugging using libthread_db enabled]
 Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
-
-Breakpoint 1, main (argc=3, argv=0x7fffffffda08) at
-/home/ycr/labo-01-first-steps/gcd.c:22
-22	    if (argc <= 2) {
 Loaded '/usr/lib/x86_64-linux-gnu/libc.so.6'. Symbols loaded.
 [Inferior 1 (process 129149) exited normally]
 The program '/home/ycr/labo-01-first-steps/gcd' has exited with code 0 (0x00000000).
 ```
 
-Le `Loaded` indique que le débogueur a chargé les symboles de débogage du programme. Le `Breakpoint 1` indique que le débogueur s'est arrêté à la ligne 22 du fichier `gcd.c`. Le `The program ... has exited with code 0` indique que le programme s'est terminé normalement sans erreurs.
+Les lignes `Loaded` indiquent que le débogueur a chargé les *symboles de débogage*, ces informations qui lui permettent de faire le lien entre le programme compilé et votre code source. La dernière ligne, `has exited with code 0`, signifie que le programme s'est terminé normalement.
 
-Maintenant, tout l'intérêt du débogueur est de pouvoir observer l'état des variables internes du programme. Pour cela, il faut placer un *breakpoint*, par exemple à la ligne 12 du fichier `gcd.c`. Pour ce faire, cliquez à gauche de la ligne 12, un point rouge apparaît. Il s'agit d'un *breakpoint*.
+Tout l'intérêt du débogueur, cependant, est de pouvoir **suspendre** l'exécution pour examiner l'état interne du programme. Il faut pour cela poser un **point d'arrêt** (*breakpoint*), par exemple à la ligne 12 de `gcd.c` : cliquez dans la marge, à gauche du numéro de ligne, et un point rouge apparaît.
 
 ![breakpoint](assets/breakpoint.png)
 
-Essayez à nouveau d'invoquer le débogueur avec `<F5>`. Le programme s'arrête à la ligne 12. Vous pouvez observer l'état des variables `a`, `b`, `r` dans le panneau `Variables` à gauche de la fenêtre. Vous pouvez également observer l'état des variables en survolant le nom de la variable dans le code source.
+Relancez le débogueur avec <kbd>F5</kbd> : le programme s'interrompt à la ligne 12. Le panneau `Variables`, à gauche de la fenêtre, affiche alors la valeur de `a`, `b` et `r` ; survoler le nom d'une variable dans le code source la révèle également.
 
 ![variables](assets/debugging.png)
 
-Vous pouvez maintenant utiliser `<F11>` pour avancer pas à pas dans le programme et observer l'évolution des variables. Vous pouvez également utiliser `<SHIFT>+<F5>` pour interrompre le débogage et `<CTRL>+<SHIFT>+<E>` pour revenir à l'explorateur de code.
+Vous pouvez désormais avancer instruction par instruction et observer l'évolution des variables :
 
-Cette méthode vous permet d'analyser le fonctionnement et de corriger les éventuelles erreurs de votre programme. Rappelez-vous du cours et de l'algorithme d'Euclide. Tentez de voir sur un papier quelle devrait être l'évolution de `a`, `b` et `r` à chaque itération de la boucle. Comparez ensuite avec ce que vous observez dans le débogueur.
+| Raccourci                          | Action                                                      |
+| ---------------------------------- | ----------------------------------------------------------- |
+| <kbd>F10</kbd>                     | Exécuter la ligne courante (*step over*)                    |
+| <kbd>F11</kbd>                     | Entrer dans la fonction appelée (*step into*)               |
+| <kbd>F5</kbd>                      | Poursuivre jusqu'au prochain point d'arrêt (*continue*)     |
+| <kbd>Maj</kbd>+<kbd>F5</kbd>       | Interrompre le débogage                                     |
 
-Votre objectif est de corriger les erreurs restantes.
+Cette méthode vous permet d'analyser finement le comportement du programme et d'en corriger les défauts. Remémorez-vous l'algorithme d'Euclide vu en cours et déroulez-le sur papier : quelles valeurs `a`, `b` et `r` devraient-elles prendre à chaque itération de la boucle ? Confrontez ensuite vos prédictions à ce qu'affiche le débogueur ; c'est là où elles divergent que se cache l'erreur.
 
-## Modifier les paramètres d'appel du programme
+Votre objectif est de corriger toutes les erreurs restantes.
 
-Vous l'aurez constaté, avec le débogueur le programme s'appelle avec 42 et 36. Vous pouvez modifier ces paramètres d'appel. Ouvrez le fichier `launch.json` avec `<CTRL>+<P>` puis tapez `launch.json` suivi de `<ENTER>`. Vous pouvez modifier les paramètres d'appel du programme dans la section `args` :
+## Modifier les arguments du programme
+
+Vous l'aurez remarqué : sous le débogueur, le programme est appelé avec les arguments 42 et 36. Vous pouvez les changer : ouvrez le fichier `launch.json` avec <kbd>Ctrl</kbd>+<kbd>P</kbd>, tapez `launch.json` puis validez avec <kbd>Entrée</kbd>. Les arguments figurent dans la clé `args` :
 
 ```json
 "args": ["42", "36"],
 ```
 
-Testez votre programme avec d'autres valeurs pour vous assurer que votre programme fonctionne correctement.
+Essayez d'autres valeurs, en particulier des cas limites (un nombre nul, deux nombres égaux, deux nombres premiers entre eux…), pour vous assurer que votre programme se comporte correctement en toutes circonstances.
 
-## Annotation de votre programme
+## Annotation du programme
 
-Pour être bien certain que vous avez compris votre premier programme, il vous est demandé d'annoter chaque ligne avec un commentaire expliquant ce que chacune fait. Voici un exemple :
+Pour vous assurer d'avoir bien compris votre premier programme, annotez **chaque ligne** d'un commentaire expliquant son rôle. Par exemple :
 
 ```c
-#include <stdlib.h> // Inclus la bibliothèque stdlib pour pouvoir utiliser la fonction `atoi`
+#include <stdlib.h> // Inclut la bibliothèque standard, qui déclare la fonction atoi
 
-int gcd(int a, int b) { // Déclare la fonction gcd qui prend en paramètre
-                        // 2 entiers a et b et retourne un entier
-  int r; // Déclare une variable `r` qui est le reste de la division
+int gcd(int a, int b) { // Déclare la fonction gcd, qui reçoit deux entiers
+                        // a et b et retourne un entier
+    int r;              // Déclare la variable r, qui mémorisera ...
 ```
 
-Si vous souhaitez être plus précis, vous pouvez utiliser les commentaires multilignes :
+Un commentaire utile ne se contente pas de paraphraser la syntaxe (« on affecte b à r ») : il explique *pourquoi* la ligne est là et ce qu'elle apporte au programme.
+
+Pour les explications plus longues, recourez aux commentaires multilignes :
 
 ```c
 /*
-Ceci est un commentaire multiligne
-pour expliquer des choses plus longues
-...
-...
-*/
+ * Ceci est un commentaire multiligne,
+ * propice aux explications plus détaillées.
+ */
 ```
 
-Si vous ne comprenez pas bien certaines lignes de code, essayez de chercher la réponse sur internet, sinon demandez autour de vous.
+Si le sens de certaines lignes vous échappe, cherchez la réponse dans la documentation ou sur Internet ; à défaut, n'hésitez pas à interroger vos camarades ou l'équipe enseignante.
 
-## Commit de vos changements
+## Enregistrer vos modifications (*commit*)
 
-Une fois que vous avez terminé toutes les étapes ci-dessus, vous pouvez soumettre vos changements sur GitHub. Pour ce faire, il faut d'abord valider vos changements avec un *commit*. Pour cela, utilisez la commande suivante depuis le terminal :
+Une fois toutes les étapes précédentes accomplies, il est temps de soumettre votre travail sur GitHub. Commencez par enregistrer vos modifications dans l'historique de Git au moyen d'un **commit** :
 
 ```console
-$ git commit -am "Fix bugs + add comments"
-[master abde12] Fix bugs + add comments
- 1 file changed, 140 insertions(+), 1 deletion(-)
- create mode 100644 gcd.c
+$ git commit -am "Fix and annotate the gcd program"
+[master 5e1d2c4] Fix and annotate the gcd program
+ 1 file changed, 24 insertions(+), 18 deletions(-)
 ```
 
-L'option `-a` demande à Git de tenir compte de toutes les modifications `all`, et l'option `-m` indique que l'argument qui suit est le commentaire associé à cet ensemble de modifications. La norme POSIX permet de concaténer les options `-am`.
+L'option `-a` (*all*) demande à Git de prendre en compte toutes les modifications apportées aux fichiers déjà suivis, et l'option `-m` (*message*) indique que l'argument suivant est le message qui décrit ces modifications. Comme le permettent les conventions POSIX, les deux options peuvent être accolées : `-am`.
 
-Si la commande ne fonctionne pas chez vous, c'est que vous n'avez probablement pas configuré votre environnent Git convenablement et que vous avez oublié de saisir vos identifiants :
+> [!TIP]
+> Un bon message de commit est bref, précis et décrit *ce que* le commit change : « Fix the Euclidean loop » plutôt que « modifs » ou « update ». N'hésitez pas à faire un commit à chaque étape franchie.
+
+Si Git refuse d'exécuter la commande, c'est vraisemblablement que vous n'avez pas encore renseigné votre identité :
 
 ```console
-git config --global user.name "Emmet Lathrop Brown"
-git config --global user.email emmet.brown@heig-vd.ch
+git config --global user.name "Emmett Lathrop Brown"
+git config --global user.email emmett.brown@heig-vd.ch
 ```
 
-## Push de vos changements
+## Publier vos modifications (*push*)
 
-Une fois le commit effectué, il faut encore soumettre vos changements sur GitHub, ceci s'effectue avec la commande `git push`
+Le commit n'existe pour l'instant que sur votre ordinateur. Pour le publier sur GitHub, utilisez la commande `git push` :
 
 ```console
 $ git push
-Counting objects: 25, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (22/22), done.
-Writing objects: 100% (25/25), 197.60 KiB | 2.53 MiB/s, done.
-Total 25 (delta 4), reused 0 (delta 0)
-remote: Resolving deltas: 100% (4/4), done.
-To github.com:heig-vd-tin/info1-labo-01.git
-   dd54203..e8d278e  master -> master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.02 KiB | 1.02 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+To github.com:heig-tin-info/labo-01-first-steps-emmett-brown.git
+   dd54203..5e1d2c4  master -> master
 ```
 
-À présent vous pouvez retourner sur GitHub pour vérifier que votre rendu de labo est bel et bien présent.
+Retournez ensuite sur GitHub pour vérifier que votre travail y figure bel et bien.
+
+## Évaluation
+
+À chaque `push`, GitHub compile votre programme et exécute les tests automatisés : c'est ce qu'on appelle l'**intégration continue**. Le résultat est visible dans l'onglet `Actions` de votre dépôt, ainsi que sur HEIG-Classroom, sous la forme d'une note **indicative**. Une coche verte signifie que la compilation et les tests ont réussi ; une croix rouge vous invite à consulter le détail de l'exécution pour comprendre ce qui a échoué.
+
+La note définitive est établie à l'échéance du laboratoire, à partir des critères énoncés dans `criteria.yml` : fonctionnement du programme, correction des erreurs, qualité et exactitude des annotations, indentation et qualité de vos commits.
+
+> [!WARNING]
+> Les fichiers `README.md`, `criteria.yml` et `.github/workflows/grading.yml` sont protégés : toute modification de votre part est automatiquement annulée par la plateforme. Ne les modifiez pas.

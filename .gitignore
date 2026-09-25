@@ -1,4 +1,11 @@
+# Build artifacts
 gcd
 *.o
-*.pyc
 *.out
+
+# Test artifacts
+report.xml
+.pytest_cache/
+__pycache__/
+*.pyc
+.venv/

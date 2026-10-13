@@ -5,8 +5,11 @@ all: build
 
 build: $(EXEC)
 
-# What the Quiz platform runs before the tests (its default build command).
-prepare: build
+# What the Quiz platform runs before the tests (its default build command):
+# a fresh build without -Werror, so that a warning is reported (and graded
+# by its own criterion) without keeping the program from being tested.
+prepare:
+	$(MAKE) --always-make build CFLAGS="$(filter-out -Werror,$(CFLAGS))"
 
 $(EXEC): $(EXEC).c
 	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)

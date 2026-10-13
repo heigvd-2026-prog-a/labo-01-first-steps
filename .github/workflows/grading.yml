@@ -25,6 +25,6 @@ jobs:
       build-command: make
       test-command: pip install pytest && pytest --junitxml=report.xml
       tests-criterion: binary.all-tests-passed
-      build-errors-criterion: build.with-no-errors
+      build-errors-criterion: build.with-no-warnings
       scale: "6"
       apt-packages: "build-essential"

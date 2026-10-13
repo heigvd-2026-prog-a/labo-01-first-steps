@@ -1,4 +1,15 @@
-# Critères d'évaluation du travail pratique
+# Critères d'évaluation du laboratoire 01 : premiers pas
+#
+# Deux usages :
+#   - à chaque push, le CI (.github/workflows/grading.yml) n'attribue que
+#     `binary.all-tests-passed` (au prorata des tests de tests/test_gcd.py qui
+#     passent) et `build.with-no-errors` : note indicative ;
+#   - la note définitive vient de l'évaluation par critères de la plateforme
+#     Quiz : elle exécute `make prepare` (qui compile gcd) et les tests de
+#     l'énoncé sur le dépôt de l'étudiant, propose par une revue LLM les points
+#     des critères qui ont un `prompt`, note `commit.history` d'après les
+#     commits (critère d'identité du projet), et l'enseignant valide chaque
+#     critère.
 ---
 schema_version: 2
 
@@ -7,10 +18,7 @@ grading:
     Tu es un correcteur impartial et bienveillant d'un cours d'introduction à
     la programmation en C, en toute première semaine de première année. C'est
     le tout premier laboratoire: les étudiants découvrent le terminal, Git,
-    Visual Studio Code, le compilateur et le débogueur. Tu évalues uniquement à
-    partir des preuves présentes dans le code source, les tests et
-    l'historique Git. En cas de doute légitime, accorde le bénéfice du doute et
-    justifie systématiquement chaque point attribué ou retiré.
+    Visual Studio Code, le compilateur et le débogueur.
 
     Le cahier des charges est le fichier README.md du dépôt: c'est lui qui fait
     foi. Le programme gcd.c fourni contenait volontairement des erreurs de
@@ -19,6 +27,22 @@ grading:
     et des erreurs de style (indentation incohérente, en-tête et variable
     inutiles). Le travail consiste à les corriger puis à annoter chaque ligne.
     Les commentaires sont attendus en français.
+
+    Tu disposes du code de l'étudiant (gcd.c), du Makefile et des tests de
+    l'énoncé, de la sortie de l'étape de compilation (make, avec les options
+    -Wall -Wextra -Werror : un avertissement fait échouer la compilation) et
+    du résultat des tests (nombre de tests réussis, tests échoués avec leur
+    message). Les tests et le Makefile sont ceux de l'énoncé, pas ceux de
+    l'étudiant. Tu ne vois pas l'historique Git : les commits sont notés par la
+    plateforme, pas par toi.
+
+    Évalue uniquement à partir de ces preuves. En cas de doute légitime,
+    accorde le bénéfice du doute. Justifie chaque point attribué ou retiré en
+    une ou deux phrases, en français, adressées à l'étudiant (vouvoiement), de
+    façon factuelle : ce qui est constaté, ce qui était attendu. Le
+    comportement du programme est déjà noté par les tests
+    (binary.all-tests-passed) : ne le pénalise pas une seconde fois, juge le
+    code lui-même.
   student:
     level: 1ère année, HEIG-VD, première semaine
     knows:
@@ -34,7 +58,7 @@ grading:
     - README.md
     - gcd.c
     - Makefile
-    - tests/*.py
+    - tests/test_gcd.py
 
 criteria:
   binary:
@@ -49,6 +73,10 @@ criteria:
       description: Le programme compile sans erreur ni avertissement avec make
       awarded_points: 0
       max_points: -4
+      prompt: >
+        Lis le code de sortie de l'étape de compilation. Retire 4 s'il est non
+        nul (erreur, ou avertissement rendu fatal par -Werror), en citant le
+        premier diagnostic du compilateur. Sinon 0.
   fixes:
     description: Correction du programme fourni
     algorithm:
@@ -110,14 +138,7 @@ criteria:
         l'imbrication des blocs. Sinon 0.
   commit:
     description: Commits sous Git
-    pushed:
-      description: Le travail a été committé et poussé sur GitHub
+    history:
+      description: Le travail a été committé et poussé sur GitHub sous l'identité de l'étudiant, avec des messages descriptifs
       awarded_points: 0
-      max_points: 1
-      prompt: >
-        Accorde 1 si l'historique contient au moins un commit de l'étudiant
-        modifiant gcd.c, en plus du commit initial. Sinon 0.
-    good-comments:
-      description: Les messages de commit sont concis, précis et cohérents
-      awarded_points: 0
-      max_points: 1
+      max_points: 2
